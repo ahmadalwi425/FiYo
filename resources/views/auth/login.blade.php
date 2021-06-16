@@ -65,9 +65,14 @@
 						</button>
 					</div>
 
-					<div class="text-center p-t-90">
+					<!-- <div class="text-center p-t-90">
 						<a class="txt1" href="#">
 							Forgot Password?
+						</a>
+					</div> -->
+					<div class="text-center p-t-90" style="padding-top:10px !important;">
+						<a class="txt1" href="{{route('register')}}">
+							Belum Punya Akun?
 						</a>
 					</div>
 				</form>

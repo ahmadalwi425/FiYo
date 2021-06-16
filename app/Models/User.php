@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\level;
+use App\Models\laporan;
+use App\Models\chat;
 
 class User extends Authenticatable
 {
@@ -20,6 +23,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'id_level',
+        'foto',
+        'no_hp',
+        'NIK',
+        'alamat',
+        'identitas',
+        'status'
     ];
 
     /**
@@ -40,4 +50,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function level(){
+        return $this->belongsTo(level::class, 'id_level');
+    }
+    public function laporan(){
+        return $this->hasMany(laporan::class, 'id');
+    }
+    public function chat(){
+        return $this->hasMany(chat::class, 'id');
+    }
 }

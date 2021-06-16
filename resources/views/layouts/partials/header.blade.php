@@ -85,8 +85,13 @@
 
         </ul>
       </nav><!-- .nav-menu -->
-
-      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
-
+      @if(Auth::User()->id_level == 1)
+      <a href="{{url('cocok')}}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Pencocokan</span></a>
+      @endif
+      <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="appointment-btn scrollto"><span class="d-none d-md-inline">Logout</span></a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
     </div>
   </header><!-- End Header -->
+  
